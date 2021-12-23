@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  font-weight: bold;
+}
+
+.card {
+  min-width: 80vh;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-control{
+  font-size: large;
+  font-weight: bold;
+}
+
+.btn{
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: large;
+  font-weight: bold;
+}
+
+select{
+  max-height: 200px;
+  overflow-y: auto;
+  padding:0 !important;
+}
+
+option {
+  font-weight: bold;
+  font-size: large;
+  padding: 5px;
+}

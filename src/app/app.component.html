@@ -1,0 +1,43 @@
+  <div class="card">
+    <div class="card-body p-4">
+      <form>
+        <div class="row mb-4">
+            <label class="col-sm-2 col-form-label">Filter prefix:</label>
+            <div class="col-sm-10">
+              <input [(ngModel)]="prefix" (keyup)="filter()" type="text" name="T_prefix" class="form-control">
+            </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-5">
+            <select type="text" [(ngModel)]="userIdSelected" class="form-control" name="T_" size="10">
+              <option *ngFor="let user of usersFiltered"
+                      [ngValue]="user.id">{{user.name}} {{user.surname}}</option>
+            </select>
+          </div>
+          <div class="col-7">
+            <div class="row mb-4">
+              <label class="col-sm-3 col-form-label">Name:</label>
+              <div class="col-9">
+                <input type="text" [(ngModel)]="name" name="name" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+                <label class="col-sm-3 col-form-label">Surname:</label>
+              <div class="col-9">
+                <input type="text"  [(ngModel)]="surname" name="surname" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-12">
+            <button type="button" [disabled]="name.length==0 || surname.length==0"        (click)="create()" class="btn btn-success me-3">Create</button>
+            <button type="button" [disabled]="!userIdSelected || usersFiltered.length==0 || name.length==0 || surname.length==0" (click)="update()" class="btn btn-warning me-3">Update</button>
+            <button type="button" [disabled]="!userIdSelected || usersFiltered.length==0" (click)="delete()" class="btn btn-danger ">Delete</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
