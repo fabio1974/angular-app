@@ -46,7 +46,6 @@ export class AppComponent {
 
   delete(){
     if(this.userIdSelected) {
-      console.log("user selected", this.userIdSelected)
       this.userService.delete(this.userIdSelected);
       this.userIdSelected = undefined
       this.refreshView()
