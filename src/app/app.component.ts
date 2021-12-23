@@ -17,9 +17,9 @@ export class AppComponent {
   surname: string = '';
   userIdSelected: number | undefined;
 
-  constructor(private manageNamesService: UserService){}
+  constructor(private userService: UserService){}
   ngOnInit(){
-    this.manageNamesService.initData()
+    this.userService.initData()
     this.refreshView()
   }
 
@@ -32,14 +32,14 @@ export class AppComponent {
 
   create() {
     let user = new User(-1,this.name,this.surname);
-    this.manageNamesService.create(user);
+    this.userService.create(user);
     this.refreshView()
   }
 
   update() {
     if(this.userIdSelected) {
       let user = new User(this.userIdSelected,this.name,this.surname);
-      this.manageNamesService.update(user);
+      this.userService.update(user);
       this.refreshView()
     }
   }
@@ -47,14 +47,14 @@ export class AppComponent {
   delete(){
     if(this.userIdSelected) {
       console.log("user selected", this.userIdSelected)
-      this.manageNamesService.delete(this.userIdSelected);
+      this.userService.delete(this.userIdSelected);
       this.userIdSelected = undefined
       this.refreshView()
     }
   }
 
   refreshView(){
-    this.users = this.manageNamesService.getAll()
+    this.users = this.userService.getAll()
     this.filter()
   }
 
